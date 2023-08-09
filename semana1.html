@@ -19,7 +19,15 @@
         var confirmCheckType = confirm("Deseja verificar o tipo do dado informado?");
 
         if (confirmCheckType) {
-            var dataType = typeof inputData;
+            var dataType = "";
+
+            if (!isNaN(inputData)) {
+                dataType = "Número";
+            } else if (typeof inputData === "string") {
+                dataType = "String";
+            } else {
+                dataType = "Outro tipo";
+            }
 
             document.write("Tipo do dado informado: " + dataType);
         } else {
@@ -73,26 +81,27 @@
         }
     </script>
 
-<script>
-    function calcularFatorial(numero) {
-        if (numero === 0 || numero === 1) {
-            return 1;
-        } else {
-            return numero * calcularFatorial(numero - 1);
+    <script>
+        function calcularFatorial(numero) {
+            if (numero === 0 || numero === 1) {
+                return 1;
+            } else {
+                return numero * calcularFatorial(numero - 1);
+            }
         }
-    }
 
-    var userInput = prompt("Digite um número inteiro positivo:");
+        var userInput = prompt("Digite um número inteiro positivo:");
 
-    var number = parseInt(userInput);
+        var number = parseInt(userInput);
 
-    if (!isNaN(number) && number >= 0) {
-        var fatorial = calcularFatorial(number);
-        alert("O fatorial de " + number + " é: " + fatorial);
-    } else {
-        alert("Entrada inválida. Por favor, digite um número inteiro positivo.");
-    }
-</script>
+        if (!isNaN(number) && number >= 0) {
+            var fatorial = calcularFatorial(number);
+            alert("O fatorial de " + number + " é: " + fatorial);
+        } else {
+            alert("Entrada inválida. Por favor, digite um número inteiro positivo.");
+        }
+    </script>
+    <br><br><br>
 
     <a href="index.html">voltar</a>
 </body>
